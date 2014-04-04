@@ -25,7 +25,7 @@ coordinates1 = frames1([1, 2], matches(1, :));
 coordinates2 = frames2([1, 2], matches(2, :));
 
 % perform ransac to find the best matches
-[M, t] = ransac(im1, im2, n, coordinates1, coordinates2, p, plotter)
+[M, t] = ransac(im1, im2, n, coordinates1, coordinates2, p, plotter);
 
 end
 
