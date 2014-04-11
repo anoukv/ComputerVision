@@ -1,9 +1,14 @@
-left = im2single(rgb2gray(imread('left.jpg')));
-right = im2single(rgb2gray(imread('right.jpg')));
+im1 = im2single(imread('img1.pgm'));
+im2 = im2single(imread('img2.pgm'));
 
-n = 18;
+n = 10;
 p = 4;
 
-[ M, t ] = computeAffineTransformation(left, right, n, p, false);
+disp('Estimaging transformation...')
+[ M, t ] = computeAffineTransformation(im1, im2, n, p, false);
 
-M = inv(M);
+disp('Transforming image...')
+own = transformImage(im2, M, t);
+
+imshow(im1)
+imshow(own)
