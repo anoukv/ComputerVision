@@ -3,6 +3,7 @@
 % Load the data:
 data = readPCDData('../../data/');
 size(data)
+data
 
 % Initialize R as identity matrix and t=0
 R;
