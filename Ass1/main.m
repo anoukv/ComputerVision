@@ -2,6 +2,7 @@
 
 % Load the data:
 data = readPCDData('../../data/');
+size(data)
 
 % Initialize R as identity matrix and t=0
 R;
@@ -21,7 +22,7 @@ for i=1:10
     
     % Calculate the new RMS.
     currentRMS = RMS();
-    if currentRMS == previousRMS:
+    if currentRMS == previousRMS;
         break;
     end
     previousRMS = currentRMS;
