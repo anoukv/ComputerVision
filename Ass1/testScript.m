@@ -36,8 +36,8 @@ RR = Rx*Ry*Rz;
 base = RR * target + repmat(T, 1, n);
 
 % let's assume perfectness for now
-%base = base + 0.01*randn(3,n);
-%target = target + 0.01*randn(3,n);
+base = base + 0.01*randn(3,n);
+target = target + 0.01*randn(3,n);
 
 figure;
 subplot(1, 2, 1);
