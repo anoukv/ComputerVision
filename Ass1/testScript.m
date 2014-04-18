@@ -1,6 +1,6 @@
 % based on an ICP demo written by Jakob Wilm
 
-m = 30;
+m = 80;
 n = m^2; 
 
 [X,Y] = meshgrid(linspace(-2,2,m), linspace(-2,2,m));
