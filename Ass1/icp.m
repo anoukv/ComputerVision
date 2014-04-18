@@ -26,15 +26,15 @@ for i=1:iterations
     % these should be ONLY the matched points, 
     % change base/target, to matched base/target!!!!!
     muBase = sum(base, 2)/size(base, 2);
-    muTarget = sum(target, 2)/size(target, 2);
+    muTarget = sum(closest_points, 2)/size(closest_points, 2);
     
     muBaseMatrix = repmat(muBase, 1, size(base, 2));
-    muTargetMatrix = repmat(muTarget, 1, size(target, 2));
+    muTargetMatrix = repmat(muTarget, 1, size(closest_points, 2));
     
     % adjust base and target
     
     baseAdjusted = base - muBaseMatrix;
-    targetAdjusted = base - muTargetMatrix;
+    targetAdjusted = closest_points - muTargetMatrix;
     
     % construct A
     A = baseAdjusted * targetAdjusted';
