@@ -47,8 +47,8 @@ subplot(1, 2, 1);
 plot3(M(1,:),M(2,:),M(3,:),'bo',D(1,:),D(2,:),D(3,:),'r.');
 axis equal;
 
-[R, t] = icp(M, D, 3);
-D2 = R * D + repmat(t, 1, n);
+[Rown, town] = icp(M, D, 3);
+D2 = Rown * D + repmat(town, 1, n);
 
 subplot(1, 2, 2);
 plot3(M(1,:),M(2,:),M(3,:),'bo',D2(1,:),D2(2,:),D2(3,:),'r.');
