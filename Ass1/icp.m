@@ -16,12 +16,11 @@ for i=1:iterations
     
     closest_points = zeros(size(base));
     for j=1:size(base,2)
-        tar = target(:,i);
+        tar = target(:,j);
         [index, ~] = vl_kdtreequery(kdtree, estimated_target, tar);
-        closest_points(:, i) = estimated_target(:,index);
+        closest_points(:,j) = estimated_target(:,index);
     end
     dist = RMS(estimated_target, closest_points)
-    
     % refine R and t through SVD
     
     % these should be ONLY the matched points, 
