@@ -9,17 +9,17 @@ for i=1:iterations
     % find closest point for each point in base
     % to point in target
     
-    estimated_target = R * base;
-    estimated_target = estimated_target - repmat(t,1,size(base,2));
+    estimated_target = R * base - repmat(t,1,size(base,2));
     
-    kdtree = vl_kdtreebuild(estimated_target);
+    kdtree = vl_kdtreebuild(target);
     
-    closest_points = zeros(size(base));
-    for j=1:size(base,2)
-        tar = target(:,j);
-        [index, ~] = vl_kdtreequery(kdtree, estimated_target, tar);
-        closest_points(:,j) = estimated_target(:,index);
+    closest_points = zeros(size(estimated_target));
+    for j=1:size(estimated_target,2)
+        point = estimated_target(:,j);
+        [index, ~] = vl_kdtreequery(kdtree, target, point);
+        closest_points(:,j) = target(:,index);
     end
+    
     dist = RMS(estimated_target, closest_points)
     % refine R and t through SVD
     
