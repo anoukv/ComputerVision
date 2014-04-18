@@ -12,18 +12,14 @@ for i=1:iterations
     estimated_target = R * base;
     estimated_target = estimated_target - repmat(t,1,size(base,2));
     
-    size(estimated_target)
     kdtree = vl_kdtreebuild(estimated_target);
     
     closest_points = zeros(size(base));
-    distance = 0;
-    for j=1:size(base,1)
-        tar = target(:,i)
-        [index, dist] = vl_kdtreequery(kdtree, estimated_target, tar);
-        closest_points(i,:) = estimated_target(index,:);
-        distance = distance + dist;
+    for j=1:size(base,2)
+        tar = target(:,i);
+        [index, ~] = vl_kdtreequery(kdtree, estimated_target, tar);
+        closest_points(:, i) = estimated_target(:,index);
     end
-    distance
     dist = RMS(estimated_target, closest_points)
     
     % refine R and t through SVD
@@ -51,8 +47,8 @@ for i=1:iterations
     R = U*V';
     
     % compute translation
-    t = muBase' - muTarget' * R
-    t = t'
+    t = muBase' - muTarget' * R;
+    t = t';
       
 end
 
