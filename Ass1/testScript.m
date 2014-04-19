@@ -2,7 +2,6 @@
 clear; 
 
 m = 80;
-n = m^2; 
 
 [X,Y] = meshgrid(linspace(-2,2,m), linspace(-2,2,m));
 
@@ -33,11 +32,11 @@ Rz = [cos(rz) -sin(rz) 0;
 
 RR = Rx*Ry*Rz;
 
-base = RR * target + repmat(T, 1, n);
+base = RR * target + repmat(T, 1, size(target, 2));
 
 % let's assume perfectness for now
-base = base + 0.01*randn(3,n);
-target = target + 0.01*randn(3,n);
+base = base + 0.01*randn(3,size(target, 2));
+target = target + 0.01*randn(3,size(target, 2));
 
 figure;
 subplot(1, 2, 1);
@@ -45,6 +44,7 @@ plot3(base(1,:),base(2,:),base(3,:),'bo',target(1,:),target(2,:),target(3,:),'r.
 axis equal;
 
 [R, t] = icp(base, target, 5);
+
 target = R * target + repmat(t, 1, size(target, 2));
 
 subplot(1, 2, 2);
