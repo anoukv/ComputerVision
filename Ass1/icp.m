@@ -13,7 +13,7 @@ for i=1:iterations
     [R_temp, t_temp] = getTransformation(matches, transformed_set1);
     
     % get the RMS
-    rms = RMS(transformed_set1, set2)
+    rms = RMS(transformed_set1, matches)
     
     % accumulate rotations and translations
     R = R_temp*R;
