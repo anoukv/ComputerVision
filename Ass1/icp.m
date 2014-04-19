@@ -1,56 +1,70 @@
-function [ R, t ] = icp( base, target, iterations )
+function [R, t, distance] = icp(base,target,iter)
 
-% initialize Rotation and translation
-R = eye(3, 3);
-t = zeros(3, 1);
+numberOfPoints = size(target,2);
 
-% iterate (iterations) times
-for i=1:iterations
+transformed_target = target;
+
+R = eye(3,3);
+t = zeros(3,1);
+
+for i=1:iter
+    
     % find closest point for each point in base
     % to point in target
+    matches = getMatches(base,transformed_target);
+        
+    % get the RMS
+    distance = RMS(base, matches)
+
+    % get the refinement for R and t
+    [R_temp,t_temp] = getTransforms(matches, transformed_target);
     
-    estimated_target = R * base - repmat(t,1,size(base,2));
+    % perofrm transformations
+    R = R_temp*R;
+    t = R_temp*t+t_temp;
+
+    % transform the target again.
+    transformed_target = R * target + repmat(t, 1, numberOfPoints);
+    
+end
+    
+function [closest_points] = getMatches(base, target)
     
     kdtree = vl_kdtreebuild(target);
     
-    closest_points = zeros(size(estimated_target));
-    for j=1:size(estimated_target,2)
-        point = estimated_target(:,j);
+    closest_points = zeros(size(base));
+    
+    for j=1:size(base,2)
+        point = base(:,j);
         [index, ~] = vl_kdtreequery(kdtree, target, point);
         closest_points(:,j) = target(:,index);
     end
-    
-    dist = RMS(estimated_target, closest_points)
+
+  
+function [R,t] = getTransforms(base,target)
     % refine R and t through SVD
     
-    % these should be ONLY the matched points, 
-    % change base/target, to matched base/target!!!!!
+    % get geometric mean 
     muBase = sum(base, 2)/size(base, 2);
     muTarget = sum(target, 2)/size(target, 2);
     
+    % turn getometric mean into tranlsation 
     muBaseMatrix = repmat(muBase, 1, size(base, 2));
-    muTargetMatrix = repmat(muTarget, 1, size(closest_points, 2));
+    muTargetMatrix = repmat(muTarget, 1, size(target, 2));
     
     % adjust base and target
-    
     baseAdjusted = base - muBaseMatrix;
-    targetAdjusted = closest_points - muTargetMatrix;
+    targetAdjusted = target - muTargetMatrix;
     
     % construct A
     A = baseAdjusted * targetAdjusted';
     
     % perform SVD
-    [U, E, V] = svd(A);
+    [U, ~, V] = svd(A);
     
-    % compute rotation
+    % get rotation
     R = U*V';
     
-    % compute translation
+    % get translation
     t = muBase' - muTarget' * R;
     t = t';
-      
-end
-
-
-end
-
