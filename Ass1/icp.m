@@ -1,47 +1,44 @@
-function [R, t, distance] = icp(base,target,iter)
+function [ R, t ] = icpNew( set1, set2, iterations )
 
-numberOfPoints = size(target,2);
+transformed_set1 = set1;
 
-transformed_target = target;
-
-R = eye(3,3);
-t = zeros(3,1);
-
-for i=1:iter
+R = eye(3, 3);
+t = zeros(3, 1);
+for i=1:iterations
     
     % find closest point for each point in base
-    % to point in target
-    matches = getMatches(base,transformed_target);
-        
-    % get the RMS
-    distance = RMS(base, matches)
-
-    % get the refinement for R and t
-    [R_temp,t_temp] = getTransforms(matches, transformed_target);
+    matches = getMatches(transformed_set1, set2);
     
-    % perofrm transformations
+    % get the refinement for R and t
+    [R_temp, t_temp] = getTransformation(matches, transformed_set1);
+    
+    % get the RMS
+    rms = RMS(transformed_set1, set2)
+    
+    % accumulate rotations and translations
     R = R_temp*R;
     t = R_temp*t+t_temp;
-
-    % transform the target again.
-    transformed_target = R * target + repmat(t, 1, numberOfPoints);
+    
+    % transform set1 according to new transformations
+    transformed_set1 = R * set1 + repmat(t, 1, size(set1, 2));
     
 end
+
+
+function [matches] = getMatches(set1, set2)
     
-function [closest_points] = getMatches(base, target)
+    kdtree = vl_kdtreebuild(set2);
     
-    kdtree = vl_kdtreebuild(target);
+    matches = zeros(size(set1));
     
-    closest_points = zeros(size(base));
-    
-    for j=1:size(base,2)
-        point = base(:,j);
-        [index, ~] = vl_kdtreequery(kdtree, target, point);
-        closest_points(:,j) = target(:,index);
+    for j=1:size(set1,2)
+        point = set1(:,j);
+        [index, ~] = vl_kdtreequery(kdtree, set2, point);
+        matches(:,j) = set2(:,index);
     end
 
   
-function [R,t] = getTransforms(base,target)
+function [R,t] = getTransformation(base,target)
     % refine R and t through SVD
     
     % get geometric mean 

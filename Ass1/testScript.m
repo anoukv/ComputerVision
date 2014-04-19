@@ -35,17 +35,17 @@ RR = Rx*Ry*Rz;
 base = RR * target + repmat(T, 1, size(target, 2));
 
 % let's assume perfectness for now
-base = base + 0.01*randn(3,size(target, 2));
-target = target + 0.01*randn(3,size(target, 2));
+%base = base + 0.01*randn(3,size(target, 2));
+%target = target + 0.01*randn(3,size(target, 2));
 
 figure;
 subplot(1, 2, 1);
 plot3(base(1,:),base(2,:),base(3,:),'bo',target(1,:),target(2,:),target(3,:),'r.');
 axis equal;
 
-[R, t, distance] = icp(base, target, 5);
+[R, t] = icp(base, target, 25);
 
-target = R * target + repmat(t, 1, size(target, 2));
+base = R * base + repmat(t, 1, size(base, 2));
 
 subplot(1, 2, 2);
 plot3(base(1,:),base(2,:),base(3,:),'bo',target(1,:),target(2,:),target(3,:),'r.');
