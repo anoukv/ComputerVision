@@ -35,7 +35,6 @@ RR = Rx*Ry*Rz;
 
 base = RR * target + repmat(T, 1, size(target, 2));
 
-% let's assume perfectness for now
 base = base + 0.01*randn(3,size(target, 2));
 target = target + 0.01*randn(3,size(target, 2));
 

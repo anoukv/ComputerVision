@@ -1,32 +1,26 @@
-function [ R, t ] = icpNew( set1, set2, iterations )
+function [ R, t ] = icp( set1, set2, iterations, R, t )
 
 kdtree = vl_kdtreebuild(set2);
-transformed_set1 = set1;
 
-R = eye(3, 3);
-t = zeros(3, 1);
 for i=1:iterations
+    
+    % transform set1 according to new transformations
+    transformed_set1 = R * set1 + repmat(t, 1, size(set1, 2));
     
     % find closest point for each point in base
     matches = getMatches(transformed_set1, set2, kdtree);
     
     % get the refinement for R and t
-    [R_temp, t_temp] = getTransformation(matches, transformed_set1);
+    [R, t] = getTransformation(matches, set1);
     
     % get the RMS
     rms = RMS(transformed_set1, matches)
-    
-    % accumulate rotations and translations
-    R = R_temp*R;
-    t = R_temp*t+t_temp;
-    
-    % transform set1 according to new transformations
-    transformed_set1 = R * set1 + repmat(t, 1, size(set1, 2));
     
 end
 
 
 function [matches] = getMatches(set1, set2, kdtree)
+    
     matches = zeros(size(set1));
     
     for j=1:size(set1,2)
@@ -61,5 +55,7 @@ function [R,t] = getTransformation(base,target)
     R = U*V';
     
     % get translation
-    t = muBase' - muTarget' * R;
+    t = muTarget' * R - muBase';
+    %t = muBase' - muTarget' * R ;
     t = t';
+    
