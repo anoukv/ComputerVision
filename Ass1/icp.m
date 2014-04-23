@@ -14,7 +14,7 @@ for i=1:iterations
     [R, t] = getTransformation(matches, set1);
     
     % get the RMS
-    rms = RMS(transformed_set1, matches)
+    rms = RMS(transformed_set1, matches);
     
 end
 
