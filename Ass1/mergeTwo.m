@@ -1,7 +1,7 @@
 clear()
 
 tic;
-if true
+if false
     if true
         data1 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data/0000000006.pcd'));
         data2 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data/0000000007.pcd'));
@@ -22,15 +22,16 @@ axis equal;
 R = eye(3, 3);
 t = zeros(3, 1);
 
-sample1 = uniform_data_sampler(data1, 0.05);
-sample2 = uniform_data_sampler(data2, 0.05);
+sample1 = random_data_sampler(data1, 0.05);
+sample2 = random_data_sampler(data2, 0.05);
 [R, t] = icp(sample1, sample2, 2, R, t );
 
-sample1 = uniform_data_sampler(data1, 0.15);
-sample2 = uniform_data_sampler(data2, 0.15);
+sample1 = random_data_sampler(data1, 0.15);
+sample2 = random_data_sampler(data2, 0.15);
 [R, t] = icp(sample1, sample2, 2, R, t );
 
-sample1 = uniform_data_sampler(data1, 0.25);
+sample1 = random_data_sampler(data1, 0.25);
+sample2 = random_data_sampler(data2, 0.25);
 [R, t] = icp(sample1, sample2, 2, R, t );
 
 data1 = R * data1 + repmat(t, 1, size(data1, 2));
