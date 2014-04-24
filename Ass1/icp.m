@@ -1,26 +1,34 @@
-function [ R, t ] = icp( set1, set2, iterations, R, t )
+function [ R, t ] = icp( set1, set2, data_fractions )
 
-kdtree = vl_kdtreebuild(set2);
+R = eye(3, 3);
+t = zeros(3, 1);
 
-for i=1:iterations
+for i=1:size(data_fractions, 1)
+    
+	sample1 = random_data_sampler(set1, data_fractions(i));
+    sample2 = random_data_sampler(set2, data_fractions(i));
+    
+    %sample1 = uniform_data_sampler(set1, data_fractions(i));
+    %sample2 = uniform_data_sampler(set2, data_fractions(i));
+    
+    kdtree = vl_kdtreebuild(sample2);
     
     % transform set1 according to new transformations
-    transformed_set1 = R * set1 + repmat(t, 1, size(set1, 2));
+    transformed_sample1 = R * sample1 + repmat(t, 1, size(sample1, 2));
     
     % find closest point for each point in base
-    matches = getMatches(transformed_set1, set2, kdtree);
+    matches = getMatches(transformed_sample1, sample2, kdtree);
     
     % get the refinement for R and t
-    [R, t] = getTransformation(matches, set1);
+    [R, t] = getTransformation(matches, sample1);
     
     % get the RMS
-    rms = RMS(transformed_set1, matches)
+    rms = RMS(transformed_sample1, matches)
     
 end
 
 
 function [matches] = getMatches(set1, set2, kdtree)
-    
     matches = zeros(size(set1));
     
     for j=1:size(set1,2)
