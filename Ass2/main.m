@@ -1,4 +1,3 @@
 
-imshow(read_image(1, true));
-figure;
-imshow(read_image(10, true));
+[matches1, matches2] = get_matches(read_image(1, true), read_image(2, true));
+F = eightPoint(matches1, matches2);

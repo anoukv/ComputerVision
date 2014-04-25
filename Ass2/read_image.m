@@ -22,7 +22,7 @@ else
     image_file = strcat(prefix, 'TeddyBear/obj02_', number, '.png');
 end
 
-image = imread(image_file);
+image = im2single(imread(image_file));
 
 end
 
