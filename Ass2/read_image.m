@@ -1,9 +1,9 @@
 function [ image ] = read_image( index, house )
 
-if true
+if false
     prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
 else
-    prefix = 'Anoukje';
+    prefix = '/Users/anoukvisser/dev/MATLAB/data2/';
 end
 
 if house
