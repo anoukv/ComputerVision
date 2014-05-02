@@ -1,4 +1,4 @@
-function [ F ] = eightPoint( coords1, coords2 )
+function [ F ] = eightPointNormalized( coords1, coords2 )
 
 % number of matches
 n = size(coords1, 2);
