@@ -4,8 +4,8 @@ function [ F ] = eightPointNormalized( coords1, coords2 )
 n = size(coords1, 2);
 
 % normalize points
-coords1 = normalizePoints(coords1);
-coords2 = normalizePoints(coords2);
+[coords1, T] = normalizePoints(coords1);
+[coords2, Tp] = normalizePoints(coords2);
 
 % construct A (not very pretty, better formatting?)
 A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(n, 1)];
@@ -25,9 +25,12 @@ F = reshape(V, 3, 3)';
 % set smallest singular value of D to 0, recompute F
 F = Uf * diag([Df(1, 1), Df(2, 2), 0]) * Vf';
 
+% denormalization
+F = Tp'*F*T;
+
 end
 
-function [ normalizedPoints ] = normalizePoints( points )
+function [ normalizedPoints, T ] = normalizePoints( points )
 mx = mean(points(1, :));
 my = mean(points(2, :));
 mxMatrix = repmat(mx, 1, size(points, 2));
