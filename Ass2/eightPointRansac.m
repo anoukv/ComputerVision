@@ -1,33 +1,49 @@
-function [ F ] = eightPointRansac( coords1, coords2 )
+function [ F ] = eightPointRansac( matches1, matches2, numberOfRounds, inlierTrheshold )
 
 % number of matches
 n = size(coords1, 2);
 
 % normalize points
-[coords1, T] = normalizePoints(coords1);
-[coords2, Tp] = normalizePoints(coords2);
+[matches1, T] = normalizePoints(matches1);
+[matches2, Tp] = normalizePoints(matches2);
 
-% construct A (not very pretty, better formatting?)
-A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(n, 1)];
+%matches1 = [matches1; ones(1, n)];
+%matches2 = [matches2; ones(1, n)];
 
-% do SVD, get V
-[~, ~, V] = svd(A);
+for i=1:numberOfRounds
+    
+    % pick 8 random points: 
+    indices = randperm(n, 8);
+    coords1 = matches1(:, indices);
+    coords2 = matches2(:, indices);
 
-% take the last column of V (corresponds to smallest singular value)
-V = V(:,end);
+    % construct A (not very pretty, better formatting?)
+    A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(n, 1)];
 
-% reshape that column to get F
-F = reshape(V, 3, 3)';
+    % do SVD, get V
+    [~, ~, V] = svd(A);
 
-% do SVD on F
-[Uf, Df, Vf] = svd(F);
+    % take the last column of V (corresponds to smallest singular value)
+    V = V(:,end);
 
-% set smallest singular value of D to 0, recompute F
-F = Uf * diag([Df(1, 1), Df(2, 2), 0]) * Vf';
+    % reshape that column to get F
+    F = reshape(V, 3, 3)';
+
+    % do SVD on F
+    [Uf, Df, Vf] = svd(F);
+
+    % set smallest singular value of D to 0, recompute F
+    F = Uf * diag([Df(1, 1), Df(2, 2), 0]) * Vf';
+    
+    coords1 = [coords1;ones(1, size(coords1, 2))];
+    coords2 = [coords2;ones(1, size(coords2, 2))];
+
+
+end
 
 % denormalization
 F = Tp'*F*T;
-
+    
 end
 
 function [ normalizedPoints, T ] = normalizePoints( points )
