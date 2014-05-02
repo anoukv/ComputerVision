@@ -9,7 +9,7 @@ accset = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data/0000000000.pcd'));
 
 plot3(accset(1,:),accset(2,:),accset(3,:),'bo');
 
-for i=1:3
+for i=1:15
     i
     file = '';
     
