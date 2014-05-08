@@ -8,7 +8,12 @@ A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1
 
 V = V(:,end);
 
-F = reshape(V, 3, 3)';
+F = reshape(V, 3, 3)'
+
+[U,D,V] = svd(F);
+V = V';
+D(3,3) = 0;
+F = U * D * V
 
 end
 
