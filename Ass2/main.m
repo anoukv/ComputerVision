@@ -6,5 +6,6 @@ im2 = read_image(2, true);
 
 FStart = eightPoint(matches1, matches2)
 FNorm = eightPointNormalized(matches1, matches2)
-FRansac = eightPointRansac(matches1, matches2, 3, 0.1)
+FRansac = eightPointRansac(matches1, matches2, 10, 0.001)
+F = test(matches1, matches2, 10, 0.001)
 
