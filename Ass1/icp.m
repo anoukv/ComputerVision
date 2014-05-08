@@ -5,11 +5,11 @@ t = zeros(3, 1);
 
 for i=1:size(data_fractions, 1)
     
-	sample1 = random_data_sampler(set1, data_fractions(i));
-    sample2 = random_data_sampler(set2, data_fractions(i));
+% 	sample1 = random_data_sampler(set1, data_fractions(i));
+%     sample2 = random_data_sampler(set2, data_fractions(i));
     
-    %sample1 = uniform_data_sampler(set1, data_fractions(i));
-    %sample2 = uniform_data_sampler(set2, data_fractions(i));
+	sample1 = uniform_data_sampler(set1, data_fractions(i));
+	sample2 = uniform_data_sampler(set2, data_fractions(i));
     
     kdtree = vl_kdtreebuild(sample2);
     
