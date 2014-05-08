@@ -17,7 +17,7 @@ for i=1:numberOfRounds
     coords2 = matches2(:, indices);
 
     % construct A (not very pretty, better formatting?)
-    A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(n, 1)];
+    A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(8, 1)];
 
     % do SVD, get V
     [~, ~, V] = svd(A);
@@ -39,8 +39,8 @@ for i=1:numberOfRounds
     for index=1:n
         
         % make it homogenous
-        pi = [matches1(:, index); 1];
-        pip = [matches2(:, index); 1];
+        pi = [matches1(:, index)];
+        pip = [matches2(:, index)];
         
         numerator = (pip' * F * pi)^2;
         Fpi = F * pi;
@@ -49,13 +49,13 @@ for i=1:numberOfRounds
         denominator = Fpi(1)^2 + Fpi(2)^2 + Fpip(1)^2 + Fpip(2)^2;
         
         d = numerator / denominator;
-        if d < inlierThreshold:
+        if d < inlierTrheshold
             get(index) = 1;
         end
         
     end
     
-    if sum(get) > sum(inliers):
+    if sum(get) > sum(inliers)
         inliers = get;
     end
     
@@ -63,18 +63,17 @@ end
 
 indices = zeros(1, sum(inliers));
 indexer = 1;
-for i=1:n:
-    if get(i) == 1:
+for i=1:n
+    if inliers(i) == 1
         indices(indexer) = i;
         indexer = indexer + 1;
     end
 end
-
 coords1 = matches1(:, indices);
 coords2 = matches2(:, indices);
 
 % construct A (not very pretty, better formatting?)
-A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(n, 1)];
+A = [coords1(1, :)' .* coords2(1, :)', coords1(1, :)' .* coords2(2, :)', coords1(1, :)', coords1(2, :)' .* coords2(1, :)', coords1(2, :)' .* coords2(2, :)', coords1(2, :)', coords2(1, :)', coords2(2, :)', ones(size(coords1, 2), 1)];
 
 % do SVD, get V
 [~, ~, V] = svd(A);
