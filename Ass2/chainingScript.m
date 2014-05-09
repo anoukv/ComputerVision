@@ -6,3 +6,8 @@ im3 = read_image(3, false);
 [matches3, matches4] = get_matches(im2, im3);
 
 repeatedMatches2 = ismember(sum(ismember(matches2, matches3)), 2)
+
+total = [matches1; matches2; matches3;]
+
+for i=1:size(repeatedMatches2,2)
+    
