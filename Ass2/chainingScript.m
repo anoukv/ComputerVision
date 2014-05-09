@@ -8,10 +8,10 @@ li_l=all_matches_l.listIterator;
 all_matches_r=java.util.LinkedList;
 li_r=all_matches_r.listIterator;
 
-[frames1, desc1] = vl_sift(read_image(1, false));
+[frames1, desc1] = get_foreground_sift(read_image(1, false));
 for i=1:15
     i
-    [frames2, desc2] = vl_sift(read_image(i+1, false));
+    [frames2, desc2] = get_foreground_sift(read_image(i+1, false));
     [matches1, matches2] = get_matches_sifted(frames1, desc1, frames2, desc2);
     li_l.add(matches1);
     li_r.add(matches2);
@@ -20,7 +20,7 @@ for i=1:15
     desc1 = desc2;
 end
 
-[frames2, desc2] = vl_sift(read_image(1, false));
+[frames2, desc2] = get_foreground_sift(read_image(1, false));
 [matches1, matches2] = get_matches_sifted(frames1, desc1, frames2, desc2);
 li_l.add(matches1);
 li_r.add(matches2);
