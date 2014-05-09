@@ -22,6 +22,7 @@ else
     end
     image_file = strcat(prefix, 'TeddyBear/obj02_', number, '.png');
     image = im2single(rgb2gray(imread(image_file)));
+    image = imresize(image, 0.25);
 end
 
 %image = im2single(rgb2gray(imread(image_file)));

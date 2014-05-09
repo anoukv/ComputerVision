@@ -31,6 +31,7 @@ end
 % increment everything
 im1 = im1 + 1;
 im2 = im2 + 1;
+
 p1 = p1 + 2;
 p2 = p2 + 2;
     
