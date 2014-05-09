@@ -1,6 +1,6 @@
 function [ image ] = read_image( index, house )
 
-if false
+if true
     prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
 else
     prefix = '/Users/anoukvisser/dev/MATLAB/data2/';

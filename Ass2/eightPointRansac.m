@@ -26,9 +26,9 @@ for i=1:numberOfRounds
         pip = [matches2(:, index)];
         
         numerator = (pip' * F * pi)^2;
+        
         Fpi = F * pi;
         Fpip = F' * pip;
-        
         denominator = Fpi(1)^2 + Fpi(2)^2 + Fpip(1)^2 + Fpip(2)^2;
         
         d = numerator / denominator;
@@ -36,7 +36,6 @@ for i=1:numberOfRounds
         if d < inlierTrheshold
             get(index) = 1;
         end
-        
     end
     
     if sum(get) > sum(inliers)
