@@ -1,4 +1,4 @@
-function [ output_args ] = plotMatches( im1, im2, points1, points2 )
+function [] = plotMatches( im1, im2, points1, points2 )
 
 % compute the height and the width of the new image
 height = max(size(im1,1), size(im2,1));

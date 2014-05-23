@@ -55,7 +55,7 @@ p2 = p2 + 2;
 % Now perform the iterations:
 disp('Iterating over images..');
 for n=1:15
-    k = n - 1 % one for index correction
+    k = n - 1; % one for index correction
     matches2 = all_matches_r.get(k);
     matches3 = all_matches_l.get(k+1);
     matches4 = all_matches_r.get(k+1);
@@ -89,7 +89,7 @@ end
 
 
 
-for i=1:8
+for i=1:5
     result = kron(result,[1;1]);
 end
 
