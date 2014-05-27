@@ -15,6 +15,7 @@ coords2 = center(coords2);
 % From the assignment: "Remember to enable a sufficient number of points 
 % that persist throughout the sequence to perform the factorization on a 
 % dense matrix. There is no need to fill in missing data for this problem.
-[M, S] = factorizaion(coords1, coords2)
+[M, S] = factorizaion(coords1, coords2);
+plot3(S(1, :), S(2, :), S(3, :), 'bo');
 
 %plotMatches(I1, I2, coords1, coords2);
