@@ -2,9 +2,9 @@ clear()
 
 tic;
 if true
-    if false
-        data1 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data/0000000007.pcd'));
-        data2 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data/0000000006.pcd'));
+    if true
+        data1 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000000.pcd'));
+        data2 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000004.pcd'));
     else
         data1 = cleanup(readPcd('/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/0000000006.pcd'));
         data2 = cleanup(readPcd('/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/0000000007.pcd'));
@@ -13,17 +13,16 @@ else
     [data1, data2] = getTwoExampleData();
 end
 
+[R, t] = icpAnouk(data1, data2, [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]');
+
 figure;
 subplot(1, 2, 1);
-plot3(data1(1,:),data1(2,:),data1(3,:),'bo',data2(1,:),data2(2,:),data2(3,:),'r.');
-axis equal;
-
-[R, t] = icp(data1, data2, [0.04, 0.04, 0.08, 0.08, 0.16, 0.32]' );
+plotSurfaces(data1, data2)
 
 data1 = R * data1 + repmat(t, 1, size(data1, 2));
 
 subplot(1, 2, 2);
-plot3(data1(1,:),data1(2,:),data1(3,:),'bo',data2(1,:),data2(2,:),data2(3,:),'r.');
-axis equal;
+plotSurfaces(data1, data2)
+
 
 toc
