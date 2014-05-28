@@ -1,8 +1,7 @@
-function [ M, S ] = factorizaion( points1, points2 )
+function [ M, S ] = factorizaion2( D )
 
 % construct centered meas
-D = [points1(1, :); points2(1, :); points1(2, :); points2(2, :)];
-D(1, :)
+%D = [points1(1, :); points2(1, :); points1(2, :); points2(2, :)];
 
 [U, W, V] = svd(D);
 
