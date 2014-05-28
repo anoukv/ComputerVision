@@ -1,10 +1,4 @@
 clear();
-I1 = imresize(im2single(rgb2gray(imread('obj02_001.png'))), 0.25);
-I2 = imresize(im2single(rgb2gray(imread('obj02_002.png'))), 0.25);
-[coords1, coords2] = get_foreground_matches(I1, I2);
-
-%coords1 = center(coords1);
-%coords2 = center(coords2);
 
 % now we need to do this for multiple points using chaining.
 % A number of issues:
@@ -15,7 +9,8 @@ I2 = imresize(im2single(rgb2gray(imread('obj02_002.png'))), 0.25);
 % From the assignment: "Remember to enable a sufficient number of points 
 % that persist throughout the sequence to perform the factorization on a 
 % dense matrix. There is no need to fill in missing data for this problem.
-[M, S] = factorizaion(coords1, coords2);
+D = get_point_view_matrix();
+[M, S] = factorizaion2(D);
 plot3(S(1, :), S(2, :), S(3, :), 'bo');
 
 %plotMatches(I1, I2, coords1, coords2);
