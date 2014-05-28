@@ -1,69 +1,40 @@
-function [ R, t ] = icp( set1, set2, data_fractions )
+function [t, R] = icp(target,base,iter)
 
-R = eye(3, 3);
-t = zeros(3, 1);
+Np = size(base,2);
 
-for i=1:size(data_fractions, 1)
-    
-% 	sample1 = random_data_sampler(set1, data_fractions(i));
-%     sample2 = random_data_sampler(set2, data_fractions(i));
-    
-	sample1 = uniform_data_sampler(set1, data_fractions(i));
-	sample2 = uniform_data_sampler(set2, data_fractions(i));
-    
-    kdtree = vl_kdtreebuild(sample2);
-    
-    % transform set1 according to new transformations
-    transformed_sample1 = R * sample1 + repmat(t, 1, size(sample1, 2));
-    
-    % find closest point for each point in base
-    matches = getMatches(transformed_sample1, sample2, kdtree);
-    
-    % get the refinement for R and t
-    [R, t] = getTransformation(matches, sample1);
-    
-    % get the RMS
-    rms = RMS(transformed_sample1, matches)
-    
+baseTransformed = base;
+
+t = zeros(3,1);
+R = eye(3,3);
+
+for k=1:iter
+    matches = getMatches(baseTransformed, target);
+    [R_temp,t_temp] = getTransformation(matches, baseTransformed);
+    R = R_temp * R;
+    t = R_temp * t + t_temp;
+    baseTransformed = R * base + repmat(t, 1, Np);
+    rms = RMS(matches, baseTransformed)
+end
 end
 
 
-function [matches] = getMatches(set1, set2, kdtree)
-    matches = zeros(size(set1));
+function [R,t] = getTransformation(target,base)
+    mu_base = mean(base, 2);
+    base_new = base - repmat(mu_base, 1, size(base, 2));
+    mu_target = mean(target, 2);
+    target_new = target - repmat(mu_target, 1, size(target, 2));
+    N = base_new*target_new'; 
+    [U,~,V] = svd(N); 
+    R = V*U';
+    t = mu_target - R*mu_base;
+end
     
+function [matches] = getMatches(set1, set2)
+    kdtree = vl_kdtreebuild(set2);
+    matches = zeros(size(set1));
     for j=1:size(set1,2)
         point = set1(:,j);
         [index, ~] = vl_kdtreequery(kdtree, set2, point);
         matches(:,j) = set2(:,index);
     end
-
-  
-function [R,t] = getTransformation(base,target)
-    % refine R and t through SVD
-    
-    % get geometric mean 
-    muBase = sum(base, 2)/size(base, 2);
-    muTarget = sum(target, 2)/size(target, 2);
-    
-    % turn getometric mean into tranlsation 
-    muBaseMatrix = repmat(muBase, 1, size(base, 2));
-    muTargetMatrix = repmat(muTarget, 1, size(target, 2));
-    
-    % adjust base and target
-    baseAdjusted = base - muBaseMatrix;
-    targetAdjusted = target - muTargetMatrix;
-    
-    % construct A
-    A = baseAdjusted * targetAdjusted';
-    
-    % perform SVD
-    [U, ~, V] = svd(A);
-    
-    % get rotation
-    R = U*V';
-    
-    % get translation
-    %t = muTarget' * R - muBase';
-    t = muBase' - muTarget' * R ;
-    t = t';
-    
+end
