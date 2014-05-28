@@ -1,7 +1,7 @@
 clear()
 
 tic;
-if true
+if false
     if true
         data1 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000000.pcd'));
         data2 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000004.pcd'));
