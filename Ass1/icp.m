@@ -1,20 +1,16 @@
 function [t, R] = icp(target,base,iter)
-
-Np = size(base,2);
-
-baseTransformed = base;
-
-t = zeros(3,1);
-R = eye(3,3);
-
-for k=1:iter
-    matches = getMatches(baseTransformed, target);
-    [R_temp,t_temp] = getTransformation(matches, baseTransformed);
-    R = R_temp * R;
-    t = R_temp * t + t_temp;
-    baseTransformed = R * base + repmat(t, 1, Np);
-    rms = RMS(matches, baseTransformed)
-end
+    t = zeros(3,1);
+    R = eye(3,3);
+    for k=1:size(iter, 2)
+        sampleBase = uniform_data_sampler(base, iter(k));
+        sampleTarget = uniform_data_sampler(target, iter(k));
+        baseTransformed = R * sampleBase + repmat(t, 1, size(sampleBase, 2));
+        matches = getMatches(baseTransformed, sampleTarget);
+        [R_temp,t_temp] = getTransformation(matches, baseTransformed);
+        R = R_temp * R;
+        t = R_temp * t + t_temp;
+        rms = RMS(matches, baseTransformed)
+    end
 end
 
 
