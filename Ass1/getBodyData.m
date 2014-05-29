@@ -1,8 +1,8 @@
 function [ data1, data2 ] = getBodyData(  )
 
 if true
-    data1 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000000.pcd'));
-    data2 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000001.pcd'));
+    data1 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000050.pcd'));
+    data2 = cleanup(readPcd('/Users/anoukvisser/dev/MATLAB/data1/0000000059.pcd'));
 else
     data1 = cleanup(readPcd('/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/0000000006.pcd'));
     data2 = cleanup(readPcd('/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/0000000007.pcd'));
