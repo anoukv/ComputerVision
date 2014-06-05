@@ -60,13 +60,15 @@ for n=1:15
     matches3 = all_matches_l.get(k+1);
     matches4 = all_matches_r.get(k+1);
     
-    repeatedMatches = ismember(sum(ismember(matches3, matches2)), 2);
+    %repeatedMatches = ismember(sum(ismember(matches3, matches2)), 2);
+    repeatedMatches = ismember(matches3', matches2', 'rows')'; 
 
     for i=1:size(matches4, 2)
         if repeatedMatches(i) == 1
-            points([p1-2 p2-2], :);
             thePoint = matches3(:, i);
-            backIndex = find(ismember(sum(ismember(points, thePoint)), 2));
+            relevantRows = points([p1 - 2 p2 - 2], :);
+            backIndex = find(ismember(relevantRows', thePoint', 'rows')');
+            %backIndex = find(ismember(sum(ismember(points, thePoint)), 2));
             if size(backIndex) > 0
                 for bi=1:size(backIndex)
                     result([im1 im2], backIndex(bi)) = 1;
