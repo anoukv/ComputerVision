@@ -4,7 +4,7 @@ if i > 99
     body = [];
 else
     
-    if false
+    if true
         prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/';
     else
         prefix = '/Users/anoukvisser/dev/MATLAB/data1/';
