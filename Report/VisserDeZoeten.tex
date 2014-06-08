@@ -23,7 +23,8 @@ There are different ways to improve the efficiency and the accuracy of ICP. Some
 Estimate the camera poses using each two consecutive frames of given data. Using the estimated camera poses, merge the point-clouds of all the scenes into one point-cloud and visualize the result. 
 \\\\
 \textbf{Does the merging produce sufficient result? Discuss why.}
-\\\\\textbf{Now, estimate the camera pose and merge the results using every 2nd, 4th, and 10th frames. Does the camera pose estimation change?}
+\\\\
+\textbf{Now, estimate the camera pose and merge the results using every 2nd, 4th, and 10th frames. Does the camera pose estimation change?}
 \\\\
 Iteratively merge and estimate the camera poses for the consecutive frames (point-clouds). Supposed there are N frames (frame1, frame2 ,. . ., frameN). First, estimate the camera pose of frame2 (target) from frame1(base). Next, merge frame1 and frame2 into frame1,2. Then, estimate the camera pose of frame3(target) from frame1,2(base) and use it to merge frame1,2 and frame3 into frame1,2,3 and so on until reaching the final frame (frameN ).\\\\ \textbf{Do the estimated camera poses change in comparison with the previous estimates (Section 2.1)? Does this estimation produce better results?}
 \subsection{Questions}
@@ -31,15 +32,25 @@ Iteratively merge and estimate the camera poses for the consecutive frames (poin
 \textbf{How do you think the ICP algorithm can be improved, beside the techniques mentioned in ``Efficient variants of the ICP algorithm.'', in terms of efficiency and accuracy?}
 
 \section{Assignment 2}
-\subsection{Algorithm outline}
-Outline here.
+\subsection{Fundamental Matrix Estimation}
+To estimate the fundamental matrix $F$ we implemented the eight-point algorithm, the normalized eight-point algorithm and the normalized eight-point algorithm with RANSAC. Before we can estimate the fundamental matrix we need a set of corresponding points across two images. Therefore we first detect interest points in each image and extract their descriptors in order to match the interest points. We discard all matches that are in the background using the method described in section \ref{background}. The matches can then be used to estimate the fundamental matrix. \\\\
+To check the correctness of the fundamental matrix estimation algorithms we verified that the fundamental matrix was singular ($\textit{det}(M) = 0$ for singular matrix $M$ ). We present our analysis of the estimation of the fundamental matrix for the first and second teddy-bear images in table \ref{fund}.
+\begin{table}
+    \begin{tabular}{l|l|l|l}
+    ~                  & ep & nep & nepR \\ \hline
+    F                  
+    & $\bigl(\begin{smallmatrix}0.0000&0.0000&-0.0019\\ 0.0000&0.0000&-0.0009\\-0.0029&-0.0024&1.0000\end{smallmatrix} \bigr)$ 
+    & $\bigl(\begin{smallmatrix}0.0000&0.0000&-0.0112\\ -0.0001&0.0000&-0.0001\\0.0222&-0.0012&-1.4995\end{smallmatrix} \bigr)$                      
+    & $\bigl(\begin{smallmatrix}0.0000&0.0002&-0.0438\\ -0.0002&0.0000&0.0575\\0.0562&-0.0470&-3.2704\end{smallmatrix} \bigr)$                                  \\ \hline
+    det(F)             & 5.3517e-28  & 1.5718e-24             & -1.3839e-22                        \\ \hline
+    elapsed time (sec) & 0.000807    & 0.151748               & 0.833404                           \\
+    \end{tabular}
+    \label{fund}
+    \caption{Fundamental matrix $F$, $\textit{det}(F)$ and the elapsed time in seconds to calculate $F$ for the eight-point algorithm (ep), normalized eight-point algorithm (nep) and the normalized eight-point algorithm with RANSAC (nepR)}
+\end{table}
 \subsection{Eliminate of points detected in the background}
-Explanation here.
-\subsection{Analysis}
-\begin{itemize}
-\item speed differences
-\item Something about the determinant, rank of fundamental matrix had some property rank 1 - singular
-\end{itemize}
+\label{background}
+To eliminate points in the background we ask for some user-input. The user specifies an initial rectangle that contains the object of interest. We then initialize MATLAB's activecontour method with a mask with the size of the user-specified rectangle. This gives us a more precise mask. We again define a rectangle based on the output of the contour which fits the object of interest more tightly than the user-specified rectangle. Before we start computing matches between the two images, we first discard all interested points that lie outside of this rectangle. 
 \subsection{Chaining}
 \section{Assignment3}
 \subsection{Structure from motion}

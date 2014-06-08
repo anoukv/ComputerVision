@@ -1,2 +1,5 @@
+*.pdf
+*.tex
+*.aux
 *.DS_Store
 *.m~
