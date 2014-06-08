@@ -1,6 +1,6 @@
 clear();
-target = read_body(0);
-base = read_body(10);
+target = read_body(20);
+base = read_body(25);
 %[target, base] = getTwoExampleData();
 
 [t, R] = icp(target, base, [0.001, 0.01, 0.1]);

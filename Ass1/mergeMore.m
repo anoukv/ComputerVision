@@ -3,7 +3,7 @@ close all;
 figure;
 hold on;
 
-numOfImages = 20;
+numOfImages = 10;
 
 current = read_body(0);
 
@@ -15,7 +15,7 @@ tac = zeros(3, 1, numOfImages-1);
 for i=1:numOfImages
     i
     new = read_body(i);
-    [t, R]  = icp(current, new, [0.05, 0.1, 0.3]);
+    [t, R]  = icp(current, new, [0.001, 0.01, 0.1]);
     current = new;
 
     Rac(:, :, i) = R;

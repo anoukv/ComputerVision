@@ -17,6 +17,7 @@ else
     end
     bodyFile = strcat(prefix, number, '.pcd');
     body = cleanup(readPcd(bodyFile));
+    body = uniform_data_sampler(body, 0.1);
 end
 
 end

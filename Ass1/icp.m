@@ -9,7 +9,7 @@ function [t, R] = icp(target,base,iter)
         [R_temp,t_temp] = getTransformation(matches, baseTransformed);
         R = R_temp * R;
         t = R_temp * t + t_temp;
-        rms = RMS(matches, baseTransformed)
+        rms = RMS(matches, baseTransformed);
     end
 end
 
