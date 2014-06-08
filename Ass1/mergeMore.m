@@ -3,19 +3,19 @@ close all;
 figure;
 hold on;
 
-numOfImages = 20;
-
-current = read_body(0);
+numOfImages = 35;
+start = 1;
+current = read_body(start-1);
 
 plotSurface(current);
 
 Rac = zeros(3, 3, numOfImages-1);
 tac = zeros(3, 1, numOfImages-1);
 
-for i=1:numOfImages
+for i=start:numOfImages
     i
     new = read_body(i);
-    [t, R]  = icp(current, new, [0.05, 0.1, 0.3]);
+    [t, R]  = icp(current, new, [0.02, 0.07, 0.2]);
     current = new;
 
     Rac(:, :, i) = R;
