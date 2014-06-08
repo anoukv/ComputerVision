@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  8 JUN 2014 12:54
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  8 JUN 2014 12:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -238,18 +238,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--51
  []
 
 [1{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2]
 
-LaTeX Warning: Reference `non-existent' on page 2 undefined on input line 58.
+LaTeX Warning: Reference `non-existent' on page 3 undefined on input line 60.
 
-
-LaTeX Warning: Reference `non-existent' on page 2 undefined on input line 60.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
-
- []
-
-[2] [3] (./VisserDeZoeten.aux)
+[3] (./VisserDeZoeten.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -273,7 +266,7 @@ ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
 exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
 live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on VisserDeZoeten.pdf (3 pages, 125651 bytes).
+Output written on VisserDeZoeten.pdf (3 pages, 127408 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream

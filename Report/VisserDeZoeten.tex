@@ -54,9 +54,9 @@ To eliminate points in the background we ask for some user-input. The user speci
 \subsection{Chaining}
 \section{Assignment3}
 \subsection{Structure from motion}
-\subsubsection{Point tracking}
-By using our point-tracking algorithm as described in section \ref{non-existent} we do not find enough point to recover the structure. MENTION SOMETHING ABOUT THE AVERAGE NUMBER OF FRAMES A POINT IS FOUND IN. We could improve our point-tracking algorithm by using dense SIFT in order to obtain more points that can be matched across the images. However, a consequence of using dense SIFT is that it is computationally more expensive than using just detected interested points and their descriptors. \\\\
-\textbf{Does the reconstruction has an ambiguity?} \\
+\subsubsection{Point-tracking}
+By using our point-tracking algorithm we do not find enough point to recover the structure. MENTION SOMETHING ABOUT THE AVERAGE NUMBER OF FRAMES A POINT IS FOUND IN. We could improve our point-tracking algorithm by using dense SIFT in order to obtain more points that can be matched across the images. However, a consequence of using dense SIFT is that it is computationally more expensive than using just detected interested points and their descriptors.
+\subsubsection{Does the reconstruction has an ambiguity?} 
 Yes, the reconstruction suffers from affine ambiguity. When rotating the reconstruction so that the actual perpendicular and parallel lines look perpendicular and parallel we can recognize the house clearly. However, this only happens at a specific viewpoint, when viewing the reconstruction differently it is clear that lines that are parallel and lines that are perpendicular have not been reconstructed that way (this can be seen in image \ref{non-existent}). \subsection{Building 3D model}
 
 \end{document}
