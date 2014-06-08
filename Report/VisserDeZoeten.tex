@@ -50,12 +50,7 @@ To check the correctness of the fundamental matrix estimation algorithms we veri
 \end{table}
 \subsection{Eliminate of points detected in the background}
 \label{background}
-Explanation here.
-\subsection{Analysis}
-\begin{itemize}
-\item speed differences
-\item Something about the determinant, rank of fundamental matrix had some property rank 1 - singular
-\end{itemize}
+To eliminate points in the background we ask for some user-input. The user specifies an initial rectangle that contains the object of interest. We then initialize MATLAB's activecontour method with a mask with the size of the user-specified rectangle. This gives us a more precise mask. We again define a rectangle based on the output of the contour which fits the object of interest more tightly than the user-specified rectangle. Before we start computing matches between the two images, we first discard all interested points that lie outside of this rectangle. 
 \subsection{Chaining}
 \section{Assignment3}
 \subsection{Structure from motion}
