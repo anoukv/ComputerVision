@@ -5,7 +5,6 @@ mask = zeros(size(I));
 mask(150:end-150, 150:end-150) = 1;
 
 bw = activecontour(I, mask);
-imshow(bw);
 
 [r, c] = find(bw);
 foreground = zeros(size(I));
