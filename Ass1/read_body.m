@@ -4,7 +4,7 @@ if i > 99
     body = [];
 else
     
-    if true
+    if false
         prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/';
     else
         prefix = '/Users/anoukvisser/dev/MATLAB/data1/';
@@ -17,7 +17,6 @@ else
     end
     bodyFile = strcat(prefix, number, '.pcd');
     body = cleanup(readPcd(bodyFile));
-    body = uniform_data_sampler(body, 0.01);
 end
 
 end

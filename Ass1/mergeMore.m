@@ -29,10 +29,4 @@ for i=1:numOfImages
     plotSurface(new);
 end
 
-% for i=1:numOfImages
-%     i
-%     data = read_body(i);
-%     
-% end
-
 hold off;
