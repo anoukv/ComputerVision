@@ -1,9 +1,9 @@
-function [ output_args ] = merge1( stepSize, numberOfImages )
+function [] = merge1( stepSize, numberOfImages, prefix, sampler )
 close all;
 figure;
 hold on;
 
-current = read_body(0);
+current = read_body(0, prefix);
 
 plotSurface(current);
 
@@ -16,8 +16,8 @@ RacTacIndex = 1;
 while i <= numberOfImages
     i = i + stepSize 
 
-    new = read_body(i);
-    [t, R]  = icp(current, new, [0.1, 0.1, 0.2, 0.3, 0.4]);
+    new = read_body(i, prefix);
+    [t, R]  = icp(current, new, [0.01, 0.01, 0.02, 0.03, 0.1, 0.2], sampler);
     current = new;
 
     %newTransformed = R * new + repmat(t, 1, size(new, 2));

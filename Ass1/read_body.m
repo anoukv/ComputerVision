@@ -1,15 +1,8 @@
-function [ body ] = read_body( index )
+function [ body ] = read_body( index, prefix )
 
 if i > 99
     body = [];
 else
-    
-    if true
-        prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/';
-    else
-        prefix = '/Users/anoukvisser/dev/MATLAB/data1/';
-    end
-
     if index < 10
         number = strcat('000000000', int2str(index));
     else
@@ -17,7 +10,7 @@ else
     end
     bodyFile = strcat(prefix, number, '.pcd');
     body = cleanup(readPcd(bodyFile));
-    body = uniform_data_sampler(body, 0.1);
+    body = uniform_data_sampler(body, 1.0);
 end
 
 end

@@ -3,9 +3,12 @@ close all;
 figure;
 hold on;
 
-numOfImages = 35;
+% prefix = '/Users/anoukvisser/dev/MATLAB/data1/';
+prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/';
 
-current = read_body(0);
+numOfImages = 15;
+
+current = read_body(0, prefix);
 
 plotSurface(current);
 
@@ -14,8 +17,8 @@ tac = zeros(3, 1, numOfImages-1);
 
 for i=1:numOfImages
     i
-    new = read_body(i);
-    [t, R]  = icp(current, new, [0.02, 0.07, 0.2]);
+    new = read_body(i, prefix);
+    [t, R]  = icp(current, new, [0.02, 0.07, 0.2], 'uniform');
     current = new;
 
     Rac(:, :, i) = R;
