@@ -1,9 +1,13 @@
 clear();
-target = read_body(20);
-base = read_body(25);
+
+% prefix = '/Users/anoukvisser/dev/MATLAB/data1/';
+prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass1/';
+
+target = read_body(20, prefix);
+base = read_body(25, prefix);
 %[target, base] = getTwoExampleData();
 
-[t, R] = icp(target, base, [0.001, 0.01, 0.1]);
+[t, R] = icp(target, base, [0.2, 0.2, 0.2, 0.2, 0.2, 1], 'random');
 
 % Transform data-matrix using ICP result
 baseTransformed = R * base + repmat(t, 1, size(base, 2));
