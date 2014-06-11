@@ -1,5 +1,5 @@
 function [ s ] = random_data_sampler( data, fraction )
-
+%% TO BE COMMENTED BY REMI
 if fraction > 0.98
     s = data;
 else

@@ -25,6 +25,7 @@ for i=1:numberOfRounds
         pi = [matches1(:, index)];
         pip = [matches2(:, index)];
         
+        % compute d
         numerator = (pip' * F * pi)^2;
         
         Fpi = F * pi;
@@ -33,28 +34,24 @@ for i=1:numberOfRounds
         
         d = numerator / denominator;
         
+        % if d < threshold, set get(index) to 1
+        % indicating that this column 1 is an inlying point
         if d < inlierTrheshold
             get(index) = 1;
         end
     end
     
+    % if the number of inliers exceeds the previous number
+    % of inliers, set inliers to get remembering which points were inliers.
     if sum(get) > sum(inliers)
         inliers = get;
     end
     
 end
 
-indices = zeros(1, sum(inliers));
-indexer = 1;
-for i=1:n
-    if inliers(i) == 1
-        indices(indexer) = i;
-        indexer = indexer + 1;
-    end
-end
-
-coords1 = matches1(:, indices);
-coords2 = matches2(:, indices);
+% get inlying coords
+coords1 = matches1(:, find(inliers));
+coords2 = matches2(:, find(inliers));
 
 % Do regular eightPoint on the ranseced normalized data.
 F = eightPoint( coords1, coords2 );

@@ -1,5 +1,5 @@
 function [ data ] = sample( data, fraction, sampler )
-
+%% TO BE COMMENTED BY REMI
 if strcmp(sampler, 'fn')    
     data = furthest_neighbor_data_sampler(data, fraction);
 elseif strcmp(sampler, 'random')
