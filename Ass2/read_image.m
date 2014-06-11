@@ -1,10 +1,4 @@
-function [ image ] = read_image( index, house )
-
-if false
-    prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
-else
-    prefix = '/Users/anoukvisser/dev/MATLAB/data2/';
-end
+function [ image ] = read_image( index, house, prefix )
 
 if house
     if index < 10

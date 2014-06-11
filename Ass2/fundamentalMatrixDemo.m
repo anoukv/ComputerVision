@@ -1,6 +1,11 @@
 clear()
-im1 = read_image(1, false);
-im2 = read_image(2, false);
+
+prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
+% prefix = '/Users/anoukvisser/dev/MATLAB/data2/';
+
+im1 = read_image(1, false, prefix);
+im2 = read_image(2, false, prefix);
+
 [matches1, matches2] = get_foreground_matches(im1, im2);
 %plotMatches(im1, im2, matches1, matches2);
 tic

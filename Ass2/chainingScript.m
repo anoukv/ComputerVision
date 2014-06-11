@@ -1,19 +1,24 @@
-%% TO BE COMMENTED BY REMI
-
 clear();
 
 disp('Caching matches...');
 
+% Define prefix of where images are located
+prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
+% prefix = '/Users/anoukvisser/dev/MATLAB/data2/';
 
+
+% Define a java list which will be filled with point matches.
 all_matches_l=java.util.LinkedList;
 li_l=all_matches_l.listIterator;
 all_matches_r=java.util.LinkedList;
 li_r=all_matches_r.listIterator;
 
-[frames1, desc1] = get_foreground_sift(read_image(1, false));
+% loop over alle image pairs, cache the sift descriptors and see which
+% points match.
+[frames1, desc1] = get_foreground_sift(read_image(1, false, prefix));
 for i=1:15
     i
-    [frames2, desc2] = get_foreground_sift(read_image(i+1, false));
+    [frames2, desc2] = get_foreground_sift(read_image(i+1, false, prefix));
     [matches1, matches2] = get_matches_sifted(frames1, desc1, frames2, desc2);
     li_l.add(matches1);
     li_r.add(matches2);
@@ -22,12 +27,14 @@ for i=1:15
     desc1 = desc2;
 end
 
-[frames2, desc2] = get_foreground_sift(read_image(1, false));
+[frames2, desc2] = get_foreground_sift(read_image(1, false, prefix));
 [matches1, matches2] = get_matches_sifted(frames1, desc1, frames2, desc2);
 li_l.add(matches1);
 li_r.add(matches2);
 
-% First bootstrap the process:
+
+% First bootstrap the process by initializing the result matrix with the
+% matches of the first image.
 disp('Bootstrapping..');
 index = 1;
 
@@ -57,10 +64,9 @@ p2 = p2 + 2;
 % Now perform the iterations:
 disp('Iterating over images..');
 for n=1:15
-    k = n - 1; % one for index correction
-    matches2 = all_matches_r.get(k);
-    matches3 = all_matches_l.get(k+1);
-    matches4 = all_matches_r.get(k+1);
+    matches2 = all_matches_r.get(k-1);
+    matches3 = all_matches_l.get(k);
+    matches4 = all_matches_r.get(k);
     
     %repeatedMatches = ismember(sum(ismember(matches3, matches2)), 2);
     repeatedMatches = ismember(matches3', matches2', 'rows')'; 
@@ -92,7 +98,8 @@ for n=1:15
 end
 
 
-
+% This loop is to make the rows of result more dense so that we can get a
+% nice plot.
 for i=1:5
     result = kron(result,[1;1]);
 end
