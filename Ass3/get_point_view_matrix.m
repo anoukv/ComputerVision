@@ -1,5 +1,5 @@
 function [ new ] = get_point_view_matrix()
-
+%% TO BE COMENTED BY REMI
 image1 = read_image(1, false);
 image2 = read_image(2, false);
 

@@ -1,5 +1,5 @@
 function [ image ] = read_image( index, house )
-
+%% TO BE ADJUSTED BY REMI
 if false
     prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
 else
