@@ -1,4 +1,4 @@
-function [ M, S ] = factorizaion( D )
+function [ M, S ] = factorization( D )
 
 % construct centered meas
 %D = [points1(1, :); points2(1, :); points1(2, :); points2(2, :)];
