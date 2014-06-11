@@ -1,7 +1,10 @@
 function [ new ] = get_point_view_matrix()
-%% TO BE COMENTED BY REMI
-image1 = read_image(1, false);
-image2 = read_image(2, false);
+
+prefix = '/Users/Remi/Desktop/Master/Semester2/CV_data/Ass2/';
+% prefix = '/Users/anoukvisser/dev/MATLAB/data2/';
+
+image1 = read_image(1, false, prefix);
+image2 = read_image(2, false, prefix);
 
 [ matches1, matches2 ] = get_foreground_matches( image1, image2 );
 
