@@ -4,14 +4,13 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/anoukvisser/dev/PCL/greedy_projection.cpp" "/Users/anoukvisser/dev/PCL/CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o"
+  "/Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/greedy_projection.cpp" "/Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
   "DISABLE_OPENNI"
-  "DISABLE_QHULL"
   "EIGEN_USE_NEW_STDVECTOR"
   "EIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET"
   "FLANN_STATIC"
