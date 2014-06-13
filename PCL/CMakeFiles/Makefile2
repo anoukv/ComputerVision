@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.2/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/anoukvisser/dev/PCL
+CMAKE_SOURCE_DIR = /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/anoukvisser/dev/PCL
+CMAKE_BINARY_DIR = /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL
 
 #=============================================================================
 # Target rules for target CMakeFiles/greedy_projection.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /Users/anoukvisser/dev/PCL
 CMakeFiles/greedy_projection.dir/all:
 	$(MAKE) -f CMakeFiles/greedy_projection.dir/build.make CMakeFiles/greedy_projection.dir/depend
 	$(MAKE) -f CMakeFiles/greedy_projection.dir/build.make CMakeFiles/greedy_projection.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/anoukvisser/dev/PCL/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles  1
 	@echo "Built target greedy_projection"
 .PHONY : CMakeFiles/greedy_projection.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/greedy_projection.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/greedy_projection.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anoukvisser/dev/PCL/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/greedy_projection.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anoukvisser/dev/PCL/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles 0
 .PHONY : CMakeFiles/greedy_projection.dir/rule
 
 # Convenience name for target.

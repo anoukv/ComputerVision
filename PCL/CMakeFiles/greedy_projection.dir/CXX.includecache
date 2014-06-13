@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/anoukvisser/dev/PCL/greedy_projection.cpp
+/Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/greedy_projection.cpp
 pcl/point_types.h
 -
 pcl/io/pcd_io.h

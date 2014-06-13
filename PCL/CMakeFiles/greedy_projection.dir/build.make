@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.2/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/anoukvisser/dev/PCL
+CMAKE_SOURCE_DIR = /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/anoukvisser/dev/PCL
+CMAKE_BINARY_DIR = /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL
 
 # Include any dependencies generated for this target.
 include CMakeFiles/greedy_projection.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/greedy_projection.dir/flags.make
 
 CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o: CMakeFiles/greedy_projection.dir/flags.make
 CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o: greedy_projection.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/anoukvisser/dev/PCL/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o -c /Users/anoukvisser/dev/PCL/greedy_projection.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o -c /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/greedy_projection.cpp
 
 CMakeFiles/greedy_projection.dir/greedy_projection.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/greedy_projection.dir/greedy_projection.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/anoukvisser/dev/PCL/greedy_projection.cpp > CMakeFiles/greedy_projection.dir/greedy_projection.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/greedy_projection.cpp > CMakeFiles/greedy_projection.dir/greedy_projection.cpp.i
 
 CMakeFiles/greedy_projection.dir/greedy_projection.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/greedy_projection.dir/greedy_projection.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/anoukvisser/dev/PCL/greedy_projection.cpp -o CMakeFiles/greedy_projection.dir/greedy_projection.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/greedy_projection.cpp -o CMakeFiles/greedy_projection.dir/greedy_projection.cpp.s
 
 CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o.requires:
 .PHONY : CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o.requires
@@ -100,6 +100,7 @@ greedy_projection: /usr/local/lib/libpcl_filters.dylib
 greedy_projection: /usr/local/lib/libpcl_segmentation.dylib
 greedy_projection: /usr/local/lib/libpcl_visualization.dylib
 greedy_projection: /usr/local/lib/libpcl_features.dylib
+greedy_projection: /usr/local/lib/libqhullstatic.a
 greedy_projection: /usr/local/lib/libpcl_surface.dylib
 greedy_projection: /usr/local/lib/libpcl_registration.dylib
 greedy_projection: /usr/local/lib/libpcl_keypoints.dylib
@@ -121,6 +122,6 @@ CMakeFiles/greedy_projection.dir/clean:
 .PHONY : CMakeFiles/greedy_projection.dir/clean
 
 CMakeFiles/greedy_projection.dir/depend:
-	cd /Users/anoukvisser/dev/PCL && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/anoukvisser/dev/PCL /Users/anoukvisser/dev/PCL /Users/anoukvisser/dev/PCL /Users/anoukvisser/dev/PCL /Users/anoukvisser/dev/PCL/CMakeFiles/greedy_projection.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles/greedy_projection.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/greedy_projection.dir/depend
 
