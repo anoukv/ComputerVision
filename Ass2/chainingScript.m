@@ -74,7 +74,7 @@ for n=1:15
 
     for i=1:size(matches4, 2)
         if repeatedMatches(i) == 1 
-            % Match was 
+            % Point was seen before
             thePoint = matches3(:, i);
             relevantRows = points([p1 - 2 p2 - 2], :);
             backIndex = find(ismember(relevantRows', thePoint', 'rows')');
@@ -85,6 +85,7 @@ for n=1:15
                 end
             end
         else
+            % Point is new
             result([im1 im2], index) = 1;
             points([p1 p2], index) = matches4(:, i);
             index = index +1;
