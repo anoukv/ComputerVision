@@ -6,7 +6,7 @@
 \usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
 \geometry{a4paper} % or letter or a5paper or ... etc
 % \geometry{landscape} % rotated page geometry
-
+\bibliographystyle{plain}
 % See the ``Article customise'' template for come common customisations
 
 \title{Computer Vision}
@@ -21,6 +21,7 @@
 
 \section{Assignment 1}
 \subsection{ICP}
+\cite{anouk}
 There are different ways to improve the efficiency and the accuracy of ICP. Some of these techniques are discussed in ``Efficient variants of the ICP algorithm.''. In this assignment, students should also analyze various aspects such as accuracy, speed, stability and tolerance to noise by changing the point selection technique. Using all the points, uniform sub-sampling, random sub-sampling in each iteration and sub-sampling more from informative regions can be used as the point selection technique. Students are expected to implement these variants and report their findings in the final report.\\
 
 We implemented the ICP algorithm and three different sampling methods. We implemented the uniform sampling method by sampling points from the data at a uniform interval. We implemented the random sampling method using matlab's built in \textit{datasample} method. Furthermore, we implemented a `Nearest neighbor' sampling method that is designed to sample more at the informative edges of the structure than at the less informative center. This is done by finding the min and max $x, y$ and $z$ values and sampling uniformly random between e.g. the $x_{min}$ and $x_{max}$ interval. Once the random values $x_r, y_r, z_r$ are selected, a k-d tree is used to find the nearest point in the data. This method works best for data that represents a convex structure, and we performed measurements to discover if this method performs well for sampling our data.
@@ -101,5 +102,5 @@ By using our point-tracking algorithm we do not find enough points to recover th
 
 \subsubsection{Does the reconstruction have an ambiguity?} 
 Yes, the reconstruction suffers from affine ambiguity. When rotating the reconstruction so that the actual perpendicular and parallel lines look perpendicular and parallel we can recognize the house clearly. However, this only happens at a specific viewpoint, when viewing the reconstruction differently it is clear that lines that are parallel and lines that are perpendicular have not been reconstructed that way (this can be seen in image \ref{amb}). \subsection{Building 3D model}
-
+\bibliography{hallo}
 \end{document}

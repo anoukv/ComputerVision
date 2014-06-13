@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  13 JUN 2014 20:24
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  13 JUN 2014 20:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -204,7 +204,8 @@ Package ifvtex Info: VTeX not detected.
 \Gm@layoutvoffset=\dimen130
 \Gm@dimlist=\toks28
 )
-(./VisserDeZoeten.aux)
+\bibstyle{plain}
+No file VisserDeZoeten.aux.
 \openout1 = `VisserDeZoeten.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -220,7 +221,6 @@ LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
 LaTeX Font Info:    Try loading font information for U+msa on input line 17.
-
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
@@ -328,9 +328,15 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
+LaTeX Warning: Citation `anouk' on page 1 undefined on input line 24.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--26
 
  []
+
+
+LaTeX Warning: Reference `comp' on page 1 undefined on input line 28.
 
 <images/comparison.png, id=1, 562.1pt x 421.575pt>
 File: images/comparison.png Graphic file (type png)
@@ -338,42 +344,52 @@ File: images/comparison.png Graphic file (type png)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 40--46
+
+LaTeX Warning: Reference `comp' on page 2 undefined on input line 37.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--46
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--46
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--46
+Underfull \hbox (badness 10000) in paragraph at lines 41--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
 [2 <./images/comparison.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 49--51
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
  []
 
 
-Overfull \hbox (50.49883pt too wide) in paragraph at lines 61--70
+LaTeX Warning: Reference `background' on page 3 undefined on input line 58.
+
+
+LaTeX Warning: Reference `fund' on page 3 undefined on input line 59.
+
+
+Overfull \hbox (50.49883pt too wide) in paragraph at lines 62--71
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--74
+Underfull \hbox (badness 10000) in paragraph at lines 58--75
 
  []
 
@@ -383,32 +399,52 @@ File: images/house1.jpg Graphic file (type jpg)
 <images/house2.jpg, id=22, 562.1pt x 420.57124pt>
 File: images/house2.jpg Graphic file (type jpg)
  <use images/house2.jpg>
+
+LaTeX Warning: Reference `sub@amb' on page 4 undefined on input line 92.
+
+
+LaTeX Warning: Reference `sub@amb' on page 4 undefined on input line 92.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4]
-[5 <./images/house1.jpg> <./images/house2.jpg>] [6] (./VisserDeZoeten.aux) ) 
+
+LaTeX Warning: Reference `rec' on page 5 undefined on input line 98.
+
+[5 <./images/house1.jpg> <./images/house2.jpg>]
+
+LaTeX Warning: Reference `amb' on page 6 undefined on input line 104.
+
+(./VisserDeZoeten.bbl) [6] (./VisserDeZoeten.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4071 strings out of 493747
- 58479 string characters out of 3143546
- 127117 words of memory out of 3000000
- 7155 multiletter control sequences out of 15000+200000
+ 4073 strings out of 493747
+ 58490 string characters out of 3143546
+ 126059 words of memory out of 3000000
+ 7156 multiletter control sequences out of 15000+200000
  12240 words of font info for 47 fonts, out of 3000000 for 9000
  875 hyphenation exceptions out of 8191
  44i,14n,45p,892b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
-</u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on VisserDeZoeten.pdf (6 pages, 199399 bytes).
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
+l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on VisserDeZoeten.pdf (6 pages, 199690 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream
