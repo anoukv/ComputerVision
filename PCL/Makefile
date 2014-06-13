@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.12.2/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL
+CMAKE_SOURCE_DIR = /Users/Remi/Desktop/Master/Semester2/ComputerVision/code/PCL
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL
+CMAKE_BINARY_DIR = /Users/Remi/Desktop/Master/Semester2/ComputerVision/code/PCL
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Remi/Desktop/Master/Semester2/ComputerVision/code/PCL/CMakeFiles /Users/Remi/Desktop/Master/Semester2/ComputerVision/code/PCL/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anoukvisser/dev/MATLAB/ComputerVision/PCL/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Remi/Desktop/Master/Semester2/ComputerVision/code/PCL/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -102,41 +102,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named greedy_projection
+# Target rules for targets named pcd_write
 
 # Build rule for target.
-greedy_projection: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 greedy_projection
-.PHONY : greedy_projection
+pcd_write: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pcd_write
+.PHONY : pcd_write
 
 # fast build rule for target.
-greedy_projection/fast:
-	$(MAKE) -f CMakeFiles/greedy_projection.dir/build.make CMakeFiles/greedy_projection.dir/build
-.PHONY : greedy_projection/fast
+pcd_write/fast:
+	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/build
+.PHONY : pcd_write/fast
 
-greedy_projection.o: greedy_projection.cpp.o
-.PHONY : greedy_projection.o
+pcd_write.o: pcd_write.cpp.o
+.PHONY : pcd_write.o
 
 # target to build an object file
-greedy_projection.cpp.o:
-	$(MAKE) -f CMakeFiles/greedy_projection.dir/build.make CMakeFiles/greedy_projection.dir/greedy_projection.cpp.o
-.PHONY : greedy_projection.cpp.o
+pcd_write.cpp.o:
+	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/pcd_write.cpp.o
+.PHONY : pcd_write.cpp.o
 
-greedy_projection.i: greedy_projection.cpp.i
-.PHONY : greedy_projection.i
+pcd_write.i: pcd_write.cpp.i
+.PHONY : pcd_write.i
 
 # target to preprocess a source file
-greedy_projection.cpp.i:
-	$(MAKE) -f CMakeFiles/greedy_projection.dir/build.make CMakeFiles/greedy_projection.dir/greedy_projection.cpp.i
-.PHONY : greedy_projection.cpp.i
+pcd_write.cpp.i:
+	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/pcd_write.cpp.i
+.PHONY : pcd_write.cpp.i
 
-greedy_projection.s: greedy_projection.cpp.s
-.PHONY : greedy_projection.s
+pcd_write.s: pcd_write.cpp.s
+.PHONY : pcd_write.s
 
 # target to generate assembly for a file
-greedy_projection.cpp.s:
-	$(MAKE) -f CMakeFiles/greedy_projection.dir/build.make CMakeFiles/greedy_projection.dir/greedy_projection.cpp.s
-.PHONY : greedy_projection.cpp.s
+pcd_write.cpp.s:
+	$(MAKE) -f CMakeFiles/pcd_write.dir/build.make CMakeFiles/pcd_write.dir/pcd_write.cpp.s
+.PHONY : pcd_write.cpp.s
 
 # Help Target
 help:
@@ -145,11 +145,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... greedy_projection"
+	@echo "... pcd_write"
 	@echo "... rebuild_cache"
-	@echo "... greedy_projection.o"
-	@echo "... greedy_projection.i"
-	@echo "... greedy_projection.s"
+	@echo "... pcd_write.o"
+	@echo "... pcd_write.i"
+	@echo "... pcd_write.s"
 .PHONY : help
 
 
