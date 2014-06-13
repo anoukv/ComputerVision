@@ -1,8 +1,9 @@
-function [t, R] = icp(target, base, iter, sampler)
+function [t, R, rmsv] = icp(target, base, iter, sampler)
 
 % initialize t and R
 t = zeros(3,1);
 R = eye(3,3);
+rmsv = zeros(size(iter'));
 
 % for all sample sizes perform ICP
 for k=1:size(iter, 2)
@@ -26,6 +27,7 @@ for k=1:size(iter, 2)
     
     % calculate rms
     rms = RMS(matches, baseTransformed)
+    rmsv(k,1) = rms;
 end
 end
 
