@@ -26,7 +26,7 @@ for k=1:size(iter, 2)
     t = R_temp * t + t_temp;
     
     % calculate rms
-    rms = RMS(matches, baseTransformed)
+    rms = RMS(matches, baseTransformed);
     rmsv(k,1) = rms;
 end
 end
