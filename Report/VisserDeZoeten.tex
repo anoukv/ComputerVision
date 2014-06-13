@@ -1,6 +1,7 @@
 
 \documentclass[12pt]{amsart}
 \usepackage{subfig}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
 \geometry{a4paper} % or letter or a5paper or ... etc
@@ -20,7 +21,21 @@
 
 \section{Assignment 1}
 \subsection{ICP}
-There are different ways to improve the efficiency and the accuracy of ICP. Some of these techniques are discussed in ``Efficient variants of the ICP algorithm.''. In this assignment, students should also analyze various aspects such as accuracy, speed, stability and tolerance to noise by changing the point selection technique. Using all the points, uniform sub-sampling, random sub-sampling in each iteration and sub-sampling more from informative regions can be used as the point selection technique. Students are expected to implement these variants and report their findings in the final report.
+There are different ways to improve the efficiency and the accuracy of ICP. Some of these techniques are discussed in ``Efficient variants of the ICP algorithm.''. In this assignment, students should also analyze various aspects such as accuracy, speed, stability and tolerance to noise by changing the point selection technique. Using all the points, uniform sub-sampling, random sub-sampling in each iteration and sub-sampling more from informative regions can be used as the point selection technique. Students are expected to implement these variants and report their findings in the final report.\\
+
+We implemented the ICP algorithm and three different sampling methods. We implemented the uniform sampling method by sampling points from the data at a uniform interval. We implemented the random sampling method using matlab's built in \textit{datasample} method. Furthermore, we implemented a `Nearest neighbor' sampling method that is designed to sample more at the informative edges of the structure than at the less informative center. This is done by finding the min and max $x, y$ and $z$ values and sampling uniformly random between e.g. the $x_{min}$ and $x_{max}$ interval. Once the random values $x_r, y_r, z_r$ are selected, a k-d tree is used to find the nearest point in the data. This method works best for data that represents a convex structure, and we performed measurements to discover if this method performs well for sampling our data.
+Figure \ref{comp} shows our results for the comparison of different sampling methods. For this experiment we used our icp method to align images 20 and 25 from the dataset. The icp algorithm used 7 iterations. The first 6 sampled $10\%$ of the points, and in the last iteration all points were used. We plotter the root mean squared error (RMS) for each method at each iteration. We also provided the runtime that was needed to perform all 7 icp iterations, sampling included.
+
+\begin{figure}[H]
+\center
+\includegraphics[scale=0.5]{images/comparison.png}
+\caption{comp.}
+\label{comp}
+\end{figure}
+
+As can be seen in figure \ref{comp}, the random and uniform sampling methods perform very similar in time and RMS over all iterations. The Nearest Neighbor sampling method seems to have a higher RMS at early iterations, but suddenly drops at the last iteration where no subsampling is used. This means that although the RMS is higher using the Nearest Neighbor sampling method, the learned transformations are more accurate, leading to a lower final RMS. Because the Nearest Neighbor sampler needs to search the kd-tree for each sample that is taken from the data, the time that is used by this method is ~2.5 times longer. We think that if time is a consideration then in our implementation the random sampling method should be used.
+
+
 \subsection{Merging scenes}
 Estimate the camera poses using each two consecutive frames of given data. Using the estimated camera poses, merge the point-clouds of all the scenes into one point-cloud and visualize the result. 
 \\\\
@@ -32,6 +47,9 @@ Iteratively merge and estimate the camera poses for the consecutive frames (poin
 \subsection{Questions}
 \textbf{What are the drawbacks of the ICP algorithm?}\\\\
 \textbf{How do you think the ICP algorithm can be improved, beside the techniques mentioned in ``Efficient variants of the ICP algorithm.'', in terms of efficiency and accuracy?}
+
+One disadvantage of the ICP algorithm is that the initial alignment can not be too far of. This is because ICP is a form of hill-climbing where any one optimum might not necessarily be the global optimum. This problem might not be an issue in all domains. 
+One method to improve the ICP performance is to improve the data sampling method. What might help in some cases is to sample from the contours of the structure. Another might be to on-the-fly find out what kind of sampling works best for the specific task.
 
 \section{Assignment 2}
 \subsection{Fundamental Matrix Estimation}
@@ -59,8 +77,7 @@ To eliminate points in the background we ask for some user-input. The user speci
 \subsection{Chaining}
 
 \section{Assignment3}
-
-\begin{figure}
+\begin{figure}[H]
 \center
 \subfloat[]{
 \includegraphics[scale=0.35]{images/house1.jpg}
@@ -74,13 +91,14 @@ To eliminate points in the background we ask for some user-input. The user speci
 \label{rec}
 \end{figure}
 
+
 \subsection{Structure from motion}
 We have implemented the Structure from Motion algorithm described in the lecture notes. First we normalize the point coordinates by translating them to the mean of the points in each view. Then, we apply SVD to the measurement matrix, the structure is the matrix $S = W^{\frac{1}{2}} V^T$. The results on the point-view matrix of the house model provided by Rahul Raguram can be found in figure \ref{rec}.
 
 \subsubsection{Point-tracking}
-By using our point-tracking algorithm we do not find enough point to recover the structure. MENTION SOMETHING ABOUT THE AVERAGE NUMBER OF FRAMES A POINT IS FOUND IN. We could improve our point-tracking algorithm by using dense SIFT in order to obtain more points that can be matched across the images. However, a consequence of using dense SIFT is that it is computationally more expensive than using just detected interested points and their descriptors.
+By using our point-tracking algorithm we do not find enough points to recover the structure. The average number of frames that a point is found in is only five frames. We could improve our point-tracking algorithm by using dense SIFT in order to obtain more points that can be matched across the images. However, a consequence of using dense SIFT is that it is computationally more expensive than using just detected interested points and their descriptors. Another option would be to have more frames describing the same motion so that points are visible in more frames.
 
-\subsubsection{Does the reconstruction has an ambiguity?} 
+\subsubsection{Does the reconstruction have an ambiguity?} 
 Yes, the reconstruction suffers from affine ambiguity. When rotating the reconstruction so that the actual perpendicular and parallel lines look perpendicular and parallel we can recognize the house clearly. However, this only happens at a specific viewpoint, when viewing the reconstruction differently it is clear that lines that are parallel and lines that are perpendicular have not been reconstructed that way (this can be seen in image \ref{amb}). \subsection{Building 3D model}
 
 \end{document}

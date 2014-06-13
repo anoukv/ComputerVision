@@ -1,6 +1,6 @@
 function [ samples ] = furthest_neighbor_data_sampler( data, fraction )
-%% TO BE COMMENTED BY REMI
 
+% Simply return if fraction is too large
 if fraction > 0.98
     samples = data;
 else
@@ -21,6 +21,7 @@ else
     samples = zeros(3, sample_size);
     kdtree = vl_kdtreebuild(data);
 
+    % Now take n samples
     for i=1:sample_size
         point = [random_double(x_min, x_max), random_double(y_min, y_max), random_double(z_min, z_max)]';
         [index, ~] = vl_kdtreequery(kdtree, data, point);
@@ -31,8 +32,9 @@ end
 
 
 function [value] = random_double(min, max)
+% This function returns a random double value between min and max.
 value = rand();
-value = value * (max - min) + min;
+value = value * (max - min) + min; % Casts value to the appropriate range.
 
 
 
