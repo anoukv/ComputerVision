@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  13 JUN 2014 19:10
+=======
 This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  13 JUN 2014 18:34
+>>>>>>> 8bb532109317c39079a02357faa0bba0c6be494e
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -332,9 +336,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
+
+LaTeX Warning: Reference `comp' on page 1 undefined on input line 27.
+
 <images/comparison.png, id=1, 562.1pt x 421.575pt>
 File: images/comparison.png Graphic file (type png)
  <use images/comparison.png>
+<<<<<<< HEAD
+Package pdftex.def Info: images/comparison.png used on input line 31.
+(pdftex.def
+=======
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -407,3 +418,4 @@ PDF statistics:
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
+>>>>>>> 8bb532109317c39079a02357faa0bba0c6be494e

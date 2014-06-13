@@ -21,7 +21,7 @@ i = 0;
 RacTacIndex = 1;
 
 % while we have not reached the number of images
-while i < numberOfImages
+while i < numberOfImages - stepSize
     % increase the previous image with stepsize
     i = i + stepSize 
 

@@ -1,5 +1,8 @@
 function [ data ] = sample( data, fraction, sampler )
-%% TO BE COMMENTED BY REMI
+
+% This script returns a fraction of the data sampled with the sampler.
+% Currently supports 'fn', 'random' and 'uniform' sampling methods.
+
 if strcmp(sampler, 'fn')    
     data = furthest_neighbor_data_sampler(data, fraction);
 elseif strcmp(sampler, 'random')
