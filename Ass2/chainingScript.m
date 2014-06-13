@@ -61,22 +61,23 @@ im2 = im2 + 1;
 p1 = p1 + 2;
 p2 = p2 + 2;
 
-% Now perform the iterations:
+% Now perform the iterations.
+% Here we find the matches and store the new ones in 'points'. We add the
+% ones that were already seen to the results.
 disp('Iterating over images..');
 for n=1:15
     matches2 = all_matches_r.get(k-1);
     matches3 = all_matches_l.get(k);
     matches4 = all_matches_r.get(k);
     
-    %repeatedMatches = ismember(sum(ismember(matches3, matches2)), 2);
     repeatedMatches = ismember(matches3', matches2', 'rows')'; 
 
     for i=1:size(matches4, 2)
-        if repeatedMatches(i) == 1
+        if repeatedMatches(i) == 1 
+            % Match was 
             thePoint = matches3(:, i);
             relevantRows = points([p1 - 2 p2 - 2], :);
             backIndex = find(ismember(relevantRows', thePoint', 'rows')');
-            %backIndex = find(ismember(sum(ismember(points, thePoint)), 2));
             if size(backIndex) > 0
                 for bi=1:size(backIndex)
                     result([im1 im2], backIndex(bi)) = 1;
