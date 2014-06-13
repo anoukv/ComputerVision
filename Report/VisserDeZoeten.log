@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  13 JUN 2014 19:10
-=======
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  13 JUN 2014 18:34
->>>>>>> 8bb532109317c39079a02357faa0bba0c6be494e
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.12.3)  13 JUN 2014 20:24
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -336,86 +332,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-
-LaTeX Warning: Reference `comp' on page 1 undefined on input line 27.
-
 <images/comparison.png, id=1, 562.1pt x 421.575pt>
 File: images/comparison.png Graphic file (type png)
  <use images/comparison.png>
-<<<<<<< HEAD
-Package pdftex.def Info: images/comparison.png used on input line 31.
-(pdftex.def
-=======
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 40--47
+Underfull \hbox (badness 10000) in paragraph at lines 40--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--47
+Underfull \hbox (badness 10000) in paragraph at lines 40--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--47
+Underfull \hbox (badness 10000) in paragraph at lines 40--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--47
+Underfull \hbox (badness 10000) in paragraph at lines 40--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
 [2 <./images/comparison.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 48--50
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
 
  []
 
 
-Overfull \hbox (50.49883pt too wide) in paragraph at lines 60--69
+Overfull \hbox (50.49883pt too wide) in paragraph at lines 61--70
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--73
+Underfull \hbox (badness 10000) in paragraph at lines 57--74
 
  []
 
-<images/house1.jpg, id=18, 562.1pt x 420.57124pt>
+[3] <images/house1.jpg, id=21, 562.1pt x 420.57124pt>
 File: images/house1.jpg Graphic file (type jpg)
  <use images/house1.jpg>
-<images/house2.jpg, id=19, 562.1pt x 420.57124pt>
+<images/house2.jpg, id=22, 562.1pt x 420.57124pt>
 File: images/house2.jpg Graphic file (type jpg)
  <use images/house2.jpg>
-[3] [4 <./images/house1.jpg> <./images/house2.jpg>] [5] (./VisserDeZoeten.aux) 
-) 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+[5 <./images/house1.jpg> <./images/house2.jpg>] [6] (./VisserDeZoeten.aux) ) 
 Here is how much of TeX's memory you used:
  4071 strings out of 493747
  58479 string characters out of 3143546
- 128117 words of memory out of 3000000
+ 127117 words of memory out of 3000000
  7155 multiletter control sequences out of 15000+200000
  12240 words of font info for 47 fonts, out of 3000000 for 9000
  875 hyphenation exceptions out of 8191
  44i,14n,45p,892b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on VisserDeZoeten.pdf (5 pages, 198656 bytes).
+</u
+sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
+live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
+010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on VisserDeZoeten.pdf (6 pages, 199399 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 74 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
->>>>>>> 8bb532109317c39079a02357faa0bba0c6be494e

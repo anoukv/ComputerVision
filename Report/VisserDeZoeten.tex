@@ -42,7 +42,7 @@ Estimate the camera poses using each two consecutive frames of given data. Using
 \textbf{Does the merging produce sufficient result? Discuss why.}
 \\\\
 \textbf{Now, estimate the camera pose and merge the results using every 2nd, 4th, and 10th frames. Does the camera pose estimation change?}\\
-Skipping images and only using the 2nd, 4th, and 10th frames produces a point-cloud that is less dense and less accurate as less frames are being used. The following images show different views from different skip-sizes.
+Skipping images and only using the 2nd, 4th, and 10th frames produces a point-cloud that is less dense and less accurate as less frames are being used. The following images show different views from different skip-sizes.\\\\
 
 Iteratively merge and estimate the camera poses for the consecutive frames (point-clouds). Supposed there are N frames (frame1, frame2 ,. . ., frameN). First, estimate the camera pose of frame2 (target) from frame1(base). Next, merge frame1 and frame2 into frame1,2. Then, estimate the camera pose of frame3(target) from frame1,2(base) and use it to merge frame1,2 and frame3 into frame1,2,3 and so on until reaching the final frame (frameN ).\\\\ \textbf{Do the estimated camera poses change in comparison with the previous estimates (Section 2.1)? Does this estimation produce better results?}
 \subsection{Questions}
